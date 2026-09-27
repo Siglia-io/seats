@@ -1,0 +1,9 @@
+From the Log, speaking for <OWNER> — messaging rule changed, effective now.
+<OWNER>, verbatim (<clock time of the owner's message>): "<the owner's words>". (In the pilot run the order was: the system is ruthless in that it is impartial, and chats may message each other freely, not only at the given intervals.)
+This replaces PIPELINE.md R6's "Message only the Log": you may message any chat, whenever useful (SendMessage, one or two lines, by exact title).
+The bound that keeps it impartial (the Log's reading, derived from the owner's earlier rule that only the Log reads, never edits, everything, as the unbiased spine): a message may carry coordination, questions, requests and process. It may not carry content a chat's independence depends on not seeing. So:
+- Verify and Refute do not exchange verdicts or reasoning on queue items before both have sent the Log their verdicts. The Log runs the one reply round.
+- No chat tells Verify or Refute who wrote an item, or anything about planted items.
+- Scope, Specifics and Chain do not send each other findings before their own document is FINAL.
+- Nobody sends the content of another chat's document. Point the recipient to the Log instead.
+Copy the Log (to: "Log") on any message that hands off work or asks another chat for something, so the record stays whole. The capture also records every message sent.

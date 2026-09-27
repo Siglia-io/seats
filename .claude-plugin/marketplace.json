@@ -1,0 +1,16 @@
+{
+  "name": "siglia-seats",
+  "owner": {
+    "name": "Siglia, Inc."
+  },
+  "metadata": {
+    "description": "Seats: build, orchestrate and enforce multi-chat systems (a Log chat, authors, checkers, a Skills chat) for any project."
+  },
+  "plugins": [
+    {
+      "name": "seats",
+      "source": "./plugins/seats",
+      "description": "Interview, generate and enforce a group of chat seats: per-seat briefs and settings, role injection at session start, a fail-closed guard before every tool call, clock-read times, FINAL stamps, and a no-model capture for the Log."
+    }
+  ]
+}

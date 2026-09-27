@@ -1,0 +1,171 @@
+{
+ "schema": "seats/0",
+ "project_root": "__ROOT__",
+ "group": "g1",
+ "title_prefix": "g1·",
+ "tier": "standard",
+ "goal": "examine",
+ "owner": "Owner",
+ "approver": "Approver",
+ "sources": [
+  {
+   "id": "S1",
+   "path": "docs/source-1.txt",
+   "pages": "formfeed",
+   "cite": "S1 p.N"
+  },
+  {
+   "id": "S2",
+   "path": "docs/source-2.txt",
+   "pages": "marker",
+   "cite": "S2 §x [p.N]"
+  }
+ ],
+ "adjacent": [
+  {
+   "id": "A1",
+   "path": "refs/reference-1.md"
+  }
+ ],
+ "sealed_dir": "__SEALED__",
+ "folders": {
+  "chats": "g1/chats",
+  "log": "g1/log",
+  "relay": "g1/relay",
+  "store": "g1/store",
+  "state": ".seats/g1/state"
+ },
+ "seats": [
+  {
+   "name": "Log",
+   "role": "log",
+   "prefix": null,
+   "reads": [
+    "**"
+   ],
+   "agents": true,
+   "web": false,
+   "model": "claude-opus-5-5",
+   "effort": "max"
+  },
+  {
+   "name": "Scope",
+   "role": "author",
+   "lens": "macro",
+   "prefix": "SC",
+   "reads": [
+    "@sources",
+    "@own"
+   ],
+   "agents": false,
+   "web": false,
+   "model": "claude-opus-5-5",
+   "effort": "max"
+  },
+  {
+   "name": "Specifics",
+   "role": "author",
+   "lens": "line",
+   "prefix": "SP",
+   "reads": [
+    "@sources",
+    "@own"
+   ],
+   "agents": false,
+   "web": false,
+   "model": "claude-opus-5-5",
+   "effort": "max"
+  },
+  {
+   "name": "Research",
+   "role": "research",
+   "prefix": "R1",
+   "reads": [
+    "@sources",
+    "@own",
+    "@relay"
+   ],
+   "agents": true,
+   "web": true,
+   "model": "claude-opus-5-5",
+   "effort": "ultracode"
+  },
+  {
+   "name": "Vet",
+   "role": "vet",
+   "prefix": "V",
+   "reads": [
+    "@sources",
+    "@own",
+    "g1/chats/log/COMPILED-*"
+   ],
+   "agents": false,
+   "web": false,
+   "model": "claude-opus-5-5",
+   "effort": "max"
+  },
+  {
+   "name": "Verify",
+   "role": "checker",
+   "stance": "reproduce",
+   "prefix": null,
+   "reads": [
+    "@sources",
+    "@adjacent",
+    "@own",
+    "@queue"
+   ],
+   "agents": false,
+   "web": true,
+   "model": "claude-opus-5-5",
+   "effort": "max"
+  },
+  {
+   "name": "Refute",
+   "role": "checker",
+   "stance": "break",
+   "prefix": null,
+   "reads": [
+    "@sources",
+    "@adjacent",
+    "@own",
+    "@queue"
+   ],
+   "agents": false,
+   "web": true,
+   "model": "claude-opus-5-5",
+   "effort": "max"
+  },
+  {
+   "name": "Skills",
+   "role": "skills",
+   "prefix": "SK",
+   "reads": [
+    "**"
+   ],
+   "agents": true,
+   "web": true,
+   "model": "claude-opus-5-5",
+   "effort": "ultracode"
+  }
+ ],
+ "messaging": {
+  "checkers": [
+   "Verify",
+   "Refute"
+  ],
+  "authors": [
+   "Scope",
+   "Specifics"
+  ]
+ },
+ "planted": {
+  "per_kind_per_batch": 3
+ },
+ "cadence": {
+  "capture_seconds": 120,
+  "log_minutes": 10,
+  "skills_minutes": 30
+ },
+ "backend": "print"
+}
